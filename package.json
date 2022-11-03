@@ -1,6 +1,11 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "dev": "npx lerna run dev --parallel",
+    "build": "npm run build --workspaces --if-present",
+    "clean": "npx del-cli 'src/**/*.d.ts' 'src/**/*.js' 'src/**/*.map'"
+  },
   "workspaces": [
     "packages/*"
   ],
