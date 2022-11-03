@@ -7,9 +7,14 @@
     "clean": "npx del-cli 'src/**/*.d.ts' 'src/**/*.js' 'src/**/*.map'"
   },
   "workspaces": [
-    "packages/*"
+    "packages/ui",
+    "packages/web"
   ],
   "devDependencies": {
     "lerna": "^4.0.0"
+  },
+  "dependencies": {
+    "@stitches/core": "^1.2.8",
+    "@stitches/react": "^1.2.8"
   }
 }
