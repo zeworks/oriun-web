@@ -1,0 +1,18 @@
+{
+  "name": "oriun-sdk",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@urql/core": "^3.0.5",
+    "graphql": "^16.6.0",
+    "urql": "^3.0.3"
+  }
+}
