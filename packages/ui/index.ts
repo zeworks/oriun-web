@@ -1,4 +1,4 @@
-import GlobalTheme from "./lib/global"
+import GlobalTheme from "./src/global"
 
-export * from "./lib"
+export * from "./src"
 export default GlobalTheme
