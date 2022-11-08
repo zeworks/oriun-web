@@ -1,6 +1,6 @@
 import { ORIUN_AUTHTOKEN_KEY } from "@/config/constants";
 import { sdk } from "@/lib/sdk";
-import { Session } from "oriun-sdk/lib/services/auth";
+import { Session } from "oriun-sdk/src/services/auth";
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from "react";
 
 interface ContextSession {
