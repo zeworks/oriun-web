@@ -1,8 +1,9 @@
+import React from "react"
 import { styled } from "@stitches/react"
 import { ComponentMeta } from "@storybook/react"
-import { InputField as InputFieldComponent } from "./index"
-import { Icon } from "../../atoms/Icon"
-import { TextSmall } from "../../atoms/Typography"
+import { InputField as InputFieldComponent } from "./InputField"
+import { Icon } from "../../atoms/icon"
+import { TextSmall } from "../../atoms/typography"
 
 export default {
   title: "Molecules/InputField",
@@ -23,7 +24,17 @@ export const InputField = (props: any) => {
 }
 
 export const InputFieldWithAction = (props: any) => {
-  return <InputFieldComponent action={<Icon onClick={() => alert("clicked")}>visibility</Icon>} {...props} />
+  return <InputFieldComponent action={
+    <Icon
+      onClick={() => alert("clicked")}
+    >
+      visibility
+    </Icon>
+  } {...props} />
+}
+
+export const InputFieldWithIcon = (props: any) => {
+  return <InputFieldComponent icon="check" {...props} />
 }
 
 const StyledErrorText = styled(TextSmall, {

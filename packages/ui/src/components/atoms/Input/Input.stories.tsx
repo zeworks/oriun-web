@@ -1,4 +1,5 @@
-import { Input as InputComponent } from "./index";
+import React from "react";
+import { Input as InputComponent } from "./Input";
 
 export default {
   title: "Atoms/Input",
