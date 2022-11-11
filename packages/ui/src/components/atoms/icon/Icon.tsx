@@ -1,13 +1,11 @@
 import { styled } from '@stitches/react';
 import classNames from 'classnames'
 import React, { HTMLAttributes, PropsWithChildren } from 'react'
-import { pxToRem } from '../../../utils/rem';
+import { IconCSS } from '../../../styles/icon';
 
-const StyledIcon = styled('i', {
-  fontSize: pxToRem(24)
-})
+export const StyledIcon = styled('i', IconCSS)
 
-export type IconProps = HTMLAttributes<any> & {
+export type IconProps = Pick<HTMLAttributes<any>, "onClick"> & {
   /**
    * these icons are from material icons
    * - docs (Material Icons): https://fonts.google.com/icons?icon.platform=web&icon.set=Material+Icons,
@@ -24,10 +22,10 @@ export type IconProps = HTMLAttributes<any> & {
    * @default style - outlined
    */
   style?: "outlined" | "filled" | "rounded"
+  className?: string;
 }
 
 export function Icon({ variant = "icons", style = "outlined", children, className, ...props }: PropsWithChildren<IconProps>) {
-
   const isIconsOutlined = variant === "icons" && style === "outlined";
   const isIconsRounded = variant === "icons" && style === "rounded";
   const isIconsFilled = variant === "icons" && style === "filled";
@@ -35,12 +33,15 @@ export function Icon({ variant = "icons", style = "outlined", children, classNam
   const isSymbolsRounded = variant === "symbols" && style === "rounded";
 
   return (
-    <StyledIcon className={classNames({
+    <StyledIcon
+      className={classNames({
       "material-icons-outlined": isIconsOutlined,
       "material-icons": isIconsFilled,
       "material-icons-round": isIconsRounded,
       "material-symbols-rounded": isSymbolsRounded,
       "material-symbols-outlined": isSymbolsOutlined,
-    }, className)} {...props}>{children}</StyledIcon>
+      }, className)}
+      {...props}
+    >{children}</StyledIcon>
   )
 }

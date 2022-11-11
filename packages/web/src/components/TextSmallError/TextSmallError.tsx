@@ -1,7 +1,9 @@
 import { styled } from "@stitches/react";
 import { theme } from "oriun-ui";
-import { TextSmall } from "oriun-ui/lib/components/atoms/Typography";
+import { TextSmall } from "oriun-ui/lib/components/atoms/typography";
 
-export const TextSmallError = styled(TextSmall, {
-  color: theme.theme.colors.danger
+const TextSmallCSS = theme.css({
+  color: "$danger"
 })
+
+export const TextSmallError = styled(TextSmall, TextSmallCSS);

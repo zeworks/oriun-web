@@ -1,9 +1,9 @@
 import { styled } from '@stitches/react';
 import React, { Ref, useState } from 'react'
-import { Input as BaseInput, InputProps } from '../../atoms/Input'
-import { Label as BaseLabel } from '../../atoms/Label';
+import { Input as BaseInput, InputProps } from '../../atoms/input'
+import { Label as BaseLabel } from '../../atoms/label';
 import { pxToRem } from '../../../utils/rem';
-import { Icon as BaseIcon, IconProps } from '../../atoms/Icon';
+import { Icon as BaseIcon, IconProps } from '../../atoms/icon';
 
 //#region styles
 // override label styles
@@ -12,7 +12,7 @@ const StyledLabel = styled(BaseLabel, {
 })
 
 // override icon styles
-const StyledIcon = styled(BaseIcon, {
+const StyledIconOverride = styled(BaseIcon, {
   position: "absolute",
   left: 4,
   top: "50%",
@@ -75,15 +75,22 @@ const StyledWrapper = styled('div', {
 })
 //#endregion
 
-export interface InputFieldProps extends Omit<InputProps, "onFocus" | "onBlur"> {
+export interface InputFieldProps extends InputProps {
   label?: string;
   icon?: string;
+  /**
+   * @default "rounded"
+   */
   iconStyle?: IconProps["style"];
+  /**
+   * @default "icons"
+   */
   iconVariant?: IconProps["variant"];
   /**
    * ### input action
    * 
-   * it will be placed at the right side of the input
+   * it will be placed at the right side of the input.
+   * you can use it to add an Element to make actions on it, inside input field
    * @returns JSX Element
    */
   action?: React.ReactElement;
@@ -99,7 +106,7 @@ export interface InputFieldProps extends Omit<InputProps, "onFocus" | "onBlur"> 
   innerRef?: Ref<any>
 }
 
-const Input = ({ label, icon, iconStyle = "rounded", iconVariant, action, text, innerRef, ...props }: InputFieldProps) => {
+const Input = ({ label, icon, iconStyle = "rounded", iconVariant = "icons", action, text, innerRef, ...props }: InputFieldProps) => {
   const [isFocus, setFocus] = useState(false);
 
   return (
@@ -107,7 +114,7 @@ const Input = ({ label, icon, iconStyle = "rounded", iconVariant, action, text, 
       {label && (<StyledLabel text={label} />)}
       <StyledInputIconWrapper>
         {icon && (
-          <StyledIcon
+          <StyledIconOverride
             isFocus={isFocus}
             style={iconStyle}
             variant={iconVariant}

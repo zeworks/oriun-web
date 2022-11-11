@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form';
-import { InputField } from "oriun-ui/lib/components/molecules/InputField"
-import { Button } from "oriun-ui/lib/components/atoms/Button"
+import { InputField } from "oriun-ui/lib/components/molecules/inputField"
+import { Button } from "oriun-ui/lib/components/atoms/button"
 import { EMAIL_REGEX_PATTERN } from '@/config/constants';
 import { TextSmallError } from '@/components/TextSmallError';
 import { sdk } from '@/lib/sdk';
+import { Icon } from 'oriun-ui/lib/components/atoms/icon';
 
 interface LoginData {
   email: string;
@@ -24,6 +25,7 @@ export interface LoginProps {
 export function LoginForm({ onSuccess, onError, showRememberMe }: LoginProps) {
   const { handleSubmit, control, formState: { isValid, errors } } = useForm<LoginData>({ mode: "onChange" });
   const [isLoading, setLoading] = useState(false);
+  const [inputType, setInputType] = useState<"text" | "password">("password");
 
   const onSubmit = useCallback(handleSubmit(async (data) => {
     setLoading(true);
@@ -38,6 +40,8 @@ export function LoginForm({ onSuccess, onError, showRememberMe }: LoginProps) {
     setLoading(false);
 
   }), [onSuccess])
+
+  const toggleInputType = useCallback(() => setInputType(inputType === "password" ? "text" : "password"), [inputType])
 
   return (
     <form onSubmit={onSubmit}>
@@ -68,13 +72,25 @@ export function LoginForm({ onSuccess, onError, showRememberMe }: LoginProps) {
         name='password'
         control={control}
         rules={{
-          required: true,
+          required: {
+            value: true,
+            message: "Campo obrigatório"
+          }
         }}
-        render={({ field }) => <InputField type="password" label="Password" {...field} />}
+        render={({ field }) => <InputField
+          type={inputType}
+          label="Password"
+          text={<TextSmallError>{errors?.email?.message}</TextSmallError>}
+          action={
+            <Icon onClick={toggleInputType}>
+              {inputType === "password" ? "visibility" : "visibility_off"}
+            </Icon>
+          }
+          {...field} />}
       />
       <br />
       {isLoading && <span>loading...</span>}
-      <Button disabled={!isValid} label="Entrar" onClick={onSubmit} />
+      <Button label="Entrar" onClick={onSubmit} />
     </form>
   )
 }

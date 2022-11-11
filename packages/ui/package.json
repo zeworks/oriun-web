@@ -24,16 +24,6 @@
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/theming": "^6.5.10",
-    "babel-loader": "^8.2.5",
-    "react": "^18.2.0",
-    "typescript": "^4.7.4",
-    "@types/react": "^18.0.17"
-  },
-  "dependencies": {
-    "classnames": "^2.3.1"
-  },
-  "overrides": {
-    "react": "$react",
-    "react-dom": "$react-dom"
+    "babel-loader": "^8.2.5"
   }
 }
