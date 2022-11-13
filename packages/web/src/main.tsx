@@ -1,4 +1,3 @@
-import GlobalTheme from 'oriun-ui'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -22,7 +21,6 @@ function buildAppRoutes(route: RouteConfig) {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <GlobalTheme />
     <SessionProvider>
       <React.Suspense fallback={<div>loading ...</div>}>
         <BrowserRouter>
