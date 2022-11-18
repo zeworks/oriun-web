@@ -1,4 +1,4 @@
-import { globalCss } from "@stitches/core"
+import { globalCss } from "@stitches/react"
 import { memo } from "react"
 
 export const global = globalCss({

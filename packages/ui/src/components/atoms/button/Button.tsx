@@ -1,9 +1,9 @@
-import type * as Stitches from '@stitches/core';
-import { styled } from '@stitches/react';
+import type * as Stitches from '@stitches/react';
 import React, { FC, PropsWithChildren } from 'react'
 import { ButtonCSS } from '../../../styles/button';
+import theme from '../../../theme';
 
-const StyledButton: FC<ButtonProps> = styled('button', ButtonCSS)
+const StyledButton: FC<ButtonProps> = theme.styled('button', ButtonCSS)
 
 export type ButtonProps =
   PropsWithChildren<Pick<React.ButtonHTMLAttributes<any>, "onClick" | "disabled">> &

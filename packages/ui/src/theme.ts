@@ -1,4 +1,4 @@
-import { createStitches } from "@stitches/core"
+import { createStitches } from "@stitches/react"
 import { global } from "./global"
 
 export default createStitches({

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { RouteConfig } from './config/route'
+import { ConfigProvider } from './context/ConfigContext'
 import { SessionProvider } from './context/SessionContext'
 import { routes } from './routes'
 
@@ -20,7 +21,7 @@ function buildAppRoutes(route: RouteConfig) {
 }
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  <ConfigProvider>
     <SessionProvider>
       <React.Suspense fallback={<div>loading ...</div>}>
         <BrowserRouter>
@@ -30,5 +31,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         </BrowserRouter>
       </React.Suspense>
     </SessionProvider>
-  </React.StrictMode>
+  </ConfigProvider>
 )

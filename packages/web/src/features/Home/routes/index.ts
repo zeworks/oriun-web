@@ -1,10 +1,11 @@
+import { lazy } from "react";
 import { RouteConfig } from "../../../config/route";
 import Home from "./Home";
 
 export const build = (config?: any): RouteConfig[] => (
   [
     {
-      component: Home,
+      component: lazy(async () => (await import("./Home"))),
       index: true
     }
   ]

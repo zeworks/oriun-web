@@ -1,7 +1,7 @@
 import { styled } from "@stitches/react";
 import { FC, PropsWithChildren } from "react";
 import { HeadingCSS } from "../../../styles/typography";
-import type * as Stitches from "@stitches/core";
+import type * as Stitches from "@stitches/react";
 
 export type HeadingProps = PropsWithChildren<Stitches.VariantProps<typeof HeadingCSS>> & {
   className?: string;
@@ -10,8 +10,19 @@ export type HeadingProps = PropsWithChildren<Stitches.VariantProps<typeof Headin
 
 const StyledHeading: FC<HeadingProps> = styled("h2", HeadingCSS);
 
-export function Heading({ children, as = "h2", variant = "xl", ...props }: HeadingProps) {
+export function Heading({
+  children,
+  as = "h2",
+  variant = "xl",
+  ...props
+}: HeadingProps) {
   return (
-    <StyledHeading as={as} variant={variant} {...props}>{children}</StyledHeading>
+    <StyledHeading
+      as={as}
+      variant={variant}
+      {...props}
+    >
+      {children}
+    </StyledHeading>
   )
 }

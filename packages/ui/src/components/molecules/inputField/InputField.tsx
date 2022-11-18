@@ -1,18 +1,18 @@
-import { styled } from '@stitches/react';
 import React, { Ref, useState } from 'react'
 import { Input as BaseInput, InputProps } from '../../atoms/input'
 import { Label as BaseLabel } from '../../atoms/label';
 import { pxToRem } from '../../../utils/rem';
 import { Icon as BaseIcon, IconProps } from '../../atoms/icon';
+import theme from '../../../theme';
 
 //#region styles
 // override label styles
-const StyledLabel = styled(BaseLabel, {
-  marginBottom: "12px"
+const StyledLabel = theme.styled(BaseLabel, {
+  marginBottom: "12px",
 })
 
 // override icon styles
-const StyledIconOverride = styled(BaseIcon, {
+const StyledIconOverride = theme.styled(BaseIcon, {
   position: "absolute",
   left: 4,
   top: "50%",
@@ -30,7 +30,7 @@ const StyledIconOverride = styled(BaseIcon, {
 });
 
 // override input styles
-const StyledInput = styled(BaseInput, {
+const StyledInput = theme.styled(BaseInput, {
   variants: {
     hasIcon: {
       true: {
@@ -49,7 +49,7 @@ const StyledInput = styled(BaseInput, {
   }
 })
 
-const StyledActionWrapper = styled("div", {
+const StyledActionWrapper = theme.styled("div", {
   position: "absolute",
   top: 0,
   right: 0,
@@ -57,21 +57,23 @@ const StyledActionWrapper = styled("div", {
   width: "45px",
   display: "flex",
   alignItems: "center",
-  justifyContent: "center"
+  justifyContent: "center",
+  userSelect: "none"
 })
 
-const StyledText = styled('div', {
+const StyledText = theme.styled('div', {
   margin: '4px 0 0'
 })
 
-const StyledInputIconWrapper = styled('div', {
+const StyledInputIconWrapper = theme.styled('div', {
   position: "relative",
   display: "flex",
 })
 
-const StyledWrapper = styled('div', {
+const Root = theme.styled('div', {
   display: "flex",
-  flexDirection: "column"
+  flexDirection: "column",
+  marginBottom: "25px"
 })
 //#endregion
 
@@ -110,7 +112,7 @@ const Input = ({ label, icon, iconStyle = "rounded", iconVariant = "icons", acti
   const [isFocus, setFocus] = useState(false);
 
   return (
-    <StyledWrapper>
+    <Root>
       {label && (<StyledLabel text={label} />)}
       <StyledInputIconWrapper>
         {icon && (
@@ -132,7 +134,7 @@ const Input = ({ label, icon, iconStyle = "rounded", iconVariant = "icons", acti
         {action && <StyledActionWrapper>{action}</StyledActionWrapper>}
       </StyledInputIconWrapper>
       {text && <StyledText>{text}</StyledText>}
-    </StyledWrapper>
+    </Root>
   )
 }
 

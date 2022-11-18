@@ -6,7 +6,11 @@ export type OriunSdkConfig = {
   apiUri: string;
 }
 
-export function createOriunSdk(config: OriunSdkConfig) {
+type OriunSdk = {
+  auth: AuthService
+}
+
+export function createOriunSdk(config: OriunSdkConfig): OriunSdk {
   const oriunClient = createUrql(config.apiUri);
 
   const authService = new AuthService(oriunClient);
