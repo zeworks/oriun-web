@@ -7,6 +7,7 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/node_modules": true,
+    "packages/core/lib": true,
     "packages/ui/lib": true,
     "packages/sdk/lib": true,
     "packages/web/dist": true,
