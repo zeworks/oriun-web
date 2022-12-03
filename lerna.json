@@ -1,9 +1,9 @@
 {
   "packages": [
     "packages/ui",
-    "packages/web",
+    "packages/core",
     "packages/sdk",
-    "packages/core"
+    "packages/web"
   ],
   "version": "0.0.0"
 }
