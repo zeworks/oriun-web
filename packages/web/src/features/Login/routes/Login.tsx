@@ -9,9 +9,9 @@ import { useEffect } from "react";
 export default function Login() {
   const { mutateAsync: execute } = useCreateAuthentication()
   const navigate = useNavigate();
-  const { setAuthenticationToken, checkAuthentication, session } = useSession();
+  const { setAuthenticationToken, checkAuthentication } = useSession();
 
-  async function onLoginSuccess(data: LoginFormData) {
+  async function onSubmitLogin(data: LoginFormData) {
     const result = await execute(data);
 
     if (result.session?.accessToken) {
@@ -43,7 +43,7 @@ export default function Login() {
                 <Heading className="mb-5" as="h1" variant="2xl">Bem-vindo ao Oriun!</Heading>
                 <LoginForm
                   showRememberMe
-                  onSubmit={onLoginSuccess}
+                  onSubmit={onSubmitLogin}
                 />
               </div>
             </div>
