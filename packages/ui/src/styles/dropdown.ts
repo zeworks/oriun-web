@@ -1,8 +1,12 @@
 import theme from "../theme";
+import { pxToRem } from "../utils/rem";
 
 export const DropdownRootCSS = theme.css({
-  "@bpLG": {
-    position: "relative",
+  position: "relative",
+  display: "inline-flex",
+
+  "*": {
+    userSelect: "none"
   }
 })
 
@@ -16,14 +20,14 @@ export const DropdownContentCSS = theme.css({
   borderRadius: "6px",
 
   "@bpLG": {
-    width: "auto",
+    width: "max-content",
   },
 
   variants: {
     variant: {
       center: {
         left: "50%",
-        transformX: "-50%"
+        transform: "translateX(-50%)"
       },
       left: {
         left: 0,
@@ -36,5 +40,33 @@ export const DropdownContentCSS = theme.css({
 })
 
 export const DropdownTriggerCSS = theme.css({
+  display: "inline-flex",
   cursor: "pointer"
+})
+
+export const DropdownSeparatorCSS = theme.css({
+  borderTop: `1px solid ${theme.theme.colors.grey}`,
+  margin: "0 0 7px",
+  display: "inline-block",
+  width: "100%"
+})
+
+export const DropdownLabelCSS = theme.css({
+  fontSize: pxToRem(12),
+  fontWeight: "$bold",
+  color: "$grey",
+  textTransform: "uppercase",
+  margin: "0 0 7px",
+  display: "flex",
+})
+
+export const DropdownItemCSS = theme.css({
+  fontSize: pxToRem(14),
+  cursor: "default",
+  margin: "0 0 7px",
+  display: "flex",
+
+  "&:hover": {
+    color: "$primary"
+  }
 })

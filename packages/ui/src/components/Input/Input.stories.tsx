@@ -2,7 +2,7 @@ import React from "react";
 import { Input as InputComponent } from "./Input";
 
 export default {
-  title: "Atoms/Input",
+  title: "Form/Input",
   component: InputComponent,
   args: {
     placeholder: "Placeholder text"

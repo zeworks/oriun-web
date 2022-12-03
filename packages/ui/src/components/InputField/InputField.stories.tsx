@@ -6,7 +6,7 @@ import { Icon } from "../Icon"
 import { TextSmall } from "../Typography/Text"
 
 export default {
-  title: "Molecules/InputField",
+  title: "Form/InputField",
   component: InputFieldComponent,
   args: {
     label: "Label Input field",

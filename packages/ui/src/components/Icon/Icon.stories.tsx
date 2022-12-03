@@ -1,12 +1,13 @@
+import React from "react"
 import { ComponentMeta } from "@storybook/react";
-import { Icon as IconComponent } from "./index";
+import { Icon as IconComponent } from "./Icon";
 
 export function Icon(props: any) {
   return <IconComponent {...props}>{props.children}</IconComponent>
 }
 
 export default {
-  title: "Atoms/Icon",
+  title: "Other/Icon",
   component: Icon,
   args: {
     children: "check",

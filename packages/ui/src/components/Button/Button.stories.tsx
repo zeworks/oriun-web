@@ -12,7 +12,7 @@ export default {
     icon: false
   },
   argTypes: {
-    variant: { control: 'radio', options: ["primary", "secondary"] },
+    variant: { control: 'radio', options: ["primary", "secondary", "link"] },
     icon: { name: "icon", control: 'boolean', options: [true, false] }
   }
 } as ComponentMeta<typeof ButtonComponent>;

@@ -1,8 +1,9 @@
+import React from "react"
 import { ComponentMeta } from "@storybook/react"
-import { Label as LabelComponent } from "./index"
+import { Label as LabelComponent } from "./Label"
 
 export default {
-  title: "Atoms/Label",
+  title: "Typography/Label",
   component: LabelComponent,
   args: {
     text: "Label Text"
