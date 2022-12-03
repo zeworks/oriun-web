@@ -16,8 +16,8 @@ export const DropdownContentCSS = theme.css({
   width: "100%",
   backgroundColor: "$white",
   boxShadow: "$primary",
-  padding: "1rem",
   borderRadius: "6px",
+  overflow: "hidden",
 
   "@bpLG": {
     width: "max-content",
@@ -46,8 +46,6 @@ export const DropdownTriggerCSS = theme.css({
 
 export const DropdownSeparatorCSS = theme.css({
   borderTop: `1px solid ${theme.theme.colors.grey}`,
-  margin: "0 0 7px",
-  display: "inline-block",
   width: "100%"
 })
 
@@ -56,17 +54,18 @@ export const DropdownLabelCSS = theme.css({
   fontWeight: "$bold",
   color: "$grey",
   textTransform: "uppercase",
-  margin: "0 0 7px",
+  padding: "0.8rem 1rem",
   display: "flex",
 })
 
 export const DropdownItemCSS = theme.css({
-  fontSize: pxToRem(14),
+  fontSize: pxToRem(15),
   cursor: "default",
-  margin: "0 0 7px",
   display: "flex",
+  padding: "0.8rem 1rem",
 
   "&:hover": {
+    backgroundColor: "$primaryTransparent",
     color: "$primary"
   }
 })

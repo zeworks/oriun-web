@@ -1,4 +1,4 @@
-import { theme } from "oriun-ui";
+import { theme } from "@oriun/ui";
 import { cloneElement, PropsWithChildren, useMemo } from "react";
 import { DropdownTriggerCSS } from "../../styles/dropdown";
 

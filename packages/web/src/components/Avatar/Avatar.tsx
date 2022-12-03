@@ -1,4 +1,4 @@
-import { theme } from "oriun-ui";
+import { theme } from "@oriun/ui";
 
 const AvatarStyles = theme.css({
   width: "40px",

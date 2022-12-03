@@ -1,4 +1,4 @@
-import { theme } from "oriun-ui"
+import { theme } from "@oriun/ui"
 
 const Root = theme.styled("div", {
   height: "calc(100% - 4rem)",

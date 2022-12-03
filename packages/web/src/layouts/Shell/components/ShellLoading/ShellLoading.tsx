@@ -1,4 +1,4 @@
-import { theme } from "oriun-ui"
+import { theme } from "@oriun/ui"
 
 const Root = theme.styled("div", {
   position: "fixed",

@@ -1,8 +1,8 @@
 import { Avatar } from "@/components/Avatar";
 import { useSession } from "@/context/Session";
-import { theme } from "oriun-ui"
-import { Icon } from "oriun-ui/lib/components/Icon";
-import { Dropdown } from "oriun-ui/src/components/Dropdown";
+import { theme } from "@oriun/ui"
+import { Icon } from "@oriun/ui/lib/components/Icon";
+import { Dropdown } from "@oriun/ui/src/components/Dropdown";
 
 const Root = theme.styled("div", {
   height: "4rem",
@@ -21,6 +21,10 @@ const Root = theme.styled("div", {
 export function Header() {
   const { session, closeAuthentication } = useSession();
 
+  function logout() {
+    closeAuthentication()
+  }
+
   return (
     <Root>
       <div className="flex-fill d-flex justify-content-between">
@@ -35,7 +39,7 @@ export function Header() {
                 <Icon>notifications</Icon>
               </Dropdown.Trigger>
               <Dropdown.Content position="right">
-                teste de notifications
+                <Dropdown.Item>teste de notifications</Dropdown.Item>
               </Dropdown.Content>
             </Dropdown.Root>
           </div>
@@ -45,7 +49,10 @@ export function Header() {
                 <Avatar src={session?.data?.me?.profile.picture} />
               </Dropdown.Trigger>
               <Dropdown.Content position="right">
-                <button onClick={closeAuthentication}>logout</button>
+                <Dropdown.Item>Profile</Dropdown.Item>
+                <Dropdown.Separator />
+                <Dropdown.Item>Settings</Dropdown.Item>
+                <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
               </Dropdown.Content>
             </Dropdown.Root>
           </div>

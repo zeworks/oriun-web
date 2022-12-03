@@ -1,9 +1,9 @@
 import { useSession } from "@/context/Session";
-import { Heading } from "oriun-ui/lib/components/Typography";
+import { Heading } from "@oriun/ui/lib/components/Typography";
 import { LoginForm, LoginFormData } from "../components/LoginForm";
 import { useNavigate } from "react-router-dom"
 import Styles from "./styles"
-import { useCreateAuthentication } from "oriun-sdk/lib/services/authentication";
+import { useCreateAuthentication } from "@oriun/sdk/lib/services/authentication";
 import { useEffect } from "react";
 
 export default function Login() {

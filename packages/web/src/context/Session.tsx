@@ -1,7 +1,7 @@
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { ORIUN_AUTHTOKEN_KEY } from "@/config/constants";
-import { useMe } from "oriun-sdk/lib/services/account"
-import { AccountMeData } from "oriun-sdk/lib/services/account/types";
+import { useMe } from "@oriun/sdk/lib/services/account"
+import { AccountMeData } from "@oriun/sdk/lib/services/account/types";
 
 type Session = {
   loading: boolean;

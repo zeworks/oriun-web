@@ -13,8 +13,8 @@
     "vite": "^3.2.0"
   },
   "devDependencies": {
-    "oriun-sdk": "file:../sdk",
-    "oriun-ui": "file:../ui",
+    "@oriun/sdk": "file:../sdk",
+    "@oriun/ui": "file:../ui",
     "@oriun/core": "file:../core",
     "typescript": "^4.6.4"
   }

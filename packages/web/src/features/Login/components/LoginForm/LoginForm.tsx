@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form';
-import { InputField } from "oriun-ui/lib/components/InputField"
-import { Button } from "oriun-ui/lib/components/Button"
+import { InputField } from "@oriun/ui/lib/components/InputField"
+import { Button } from "@oriun/ui/lib/components/Button"
 import { EMAIL_REGEX_PATTERN } from '@/config/constants';
 import { TextSmallError } from '@/components/TextSmallError';
-import { Icon } from 'oriun-ui/lib/components/Icon';
-import { theme } from 'oriun-ui';
+import { Icon } from '@oriun/ui/lib/components/Icon';
+import { theme } from '@oriun/ui';
 
 const HoverableIcon = theme.styled(Icon, {
   "&:hover": {

@@ -1,5 +1,5 @@
 import { Children, cloneElement, useState, PropsWithChildren, useCallback, useMemo, useRef, useEffect } from "react"
-import { theme } from "oriun-ui";
+import { theme } from "@oriun/ui";
 import { useOutside } from "@oriun/core/src/utils/useOutside";
 import { DropdownRootCSS } from "../../styles/dropdown";
 
