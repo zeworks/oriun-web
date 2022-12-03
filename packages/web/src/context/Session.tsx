@@ -1,7 +1,7 @@
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { ORIUN_AUTHTOKEN_KEY } from "@/config/constants";
 import { useMe } from "@oriun/sdk/lib/services/account"
 import { AccountMeData } from "@oriun/sdk/lib/services/account/types";
+import { ORIUN_TOKEN_KEY } from "@oriun/sdk/src/config/constants";
 
 type Session = {
   loading: boolean;
@@ -38,10 +38,10 @@ export function SessionProvider(props: PropsWithChildren) {
   const { data, refetch: loadAuthentication, isLoading, error, isFetched, } = useMe();
   const [session, setSession] = useState<Session["data"]>();
 
-  const hasAuthenticationToken = useMemo(() => !!localStorage.getItem(ORIUN_AUTHTOKEN_KEY) || undefined, []);
+  const hasAuthenticationToken = useMemo(() => !!localStorage.getItem(ORIUN_TOKEN_KEY) || undefined, []);
 
   const setAuthenticationToken = useCallback((accessToken: string = "") => {
-    localStorage.setItem(ORIUN_AUTHTOKEN_KEY, accessToken);
+    localStorage.setItem(ORIUN_TOKEN_KEY, accessToken);
 
     if (accessToken) {
       loadAuthentication()
