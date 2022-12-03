@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { CoreProvider } from '@oriun/core'
 import { RouteConfig } from './config/route'
-import { ConfigProvider } from './context/ConfigContext'
-import { SessionProvider } from './context/SessionContext'
+import { SessionProvider } from './context/Session'
 import { routes } from './routes'
+import { ShellLoading } from './layouts/Shell/components/ShellLoading/ShellLoading'
 
 function buildAppRoutes(route: RouteConfig) {
   return (
@@ -19,11 +20,10 @@ function buildAppRoutes(route: RouteConfig) {
     </Route>
   )
 }
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <ConfigProvider>
+  <CoreProvider>
     <SessionProvider>
-      <React.Suspense fallback={<div>loading ...</div>}>
+      <React.Suspense fallback={<ShellLoading />}>
         <BrowserRouter>
           <Routes>
             {routes.map(buildAppRoutes)}
@@ -31,5 +31,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         </BrowserRouter>
       </React.Suspense>
     </SessionProvider>
-  </ConfigProvider>
+  </CoreProvider>
 )

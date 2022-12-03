@@ -22,7 +22,7 @@ export default createStitches({
       warningTransparent: "rgba(255, 159, 67, 0.12)",
       danger: "#ea5455",
       dangerTransparent: "rgba(234, 84, 85, 0.12)",
-      light: "#f6f6f6",
+      light: "#f8f8f8",
       white: "#ffffff",
       dark: "#4b4b4b",
       grey: "#d8d6de",
@@ -37,9 +37,6 @@ export default createStitches({
       regular: "400",
       medium: "500",
       bold: "700"
-    },
-    borderRadius: {
-      primary: "6px"
     },
     shadows: {
       primary: "0px 4px 24px rgba(0, 0, 0, 0.12)",

@@ -6,7 +6,7 @@ export const ButtonCSS = theme.css({
   outline: "none",
   color: "$dark",
   fontFamily: "$primary",
-  borderRadius: theme.theme.borderRadius.primary,
+  borderRadius: "6px",
   fontSize: pxToRem(15),
   display: "inline-flex",
   alignItems: "center",

@@ -28,7 +28,7 @@ const Root = theme.styled("div", {
 });
 
 const Logo = theme.styled("span", {
-  fontSize: "xxx-large",
+  fontSize: "48px",
   fontWeight: "$bold",
   display: "block",
 

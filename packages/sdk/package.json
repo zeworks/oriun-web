@@ -1,5 +1,5 @@
 {
-  "name": "oriun-sdk",
+  "name": "@oriun/sdk",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@oriun/core": "file:../core",
+    "@apollo/client": "^3.7.1",
     "@urql/core": "^3.0.5",
     "graphql": "^16.6.0",
     "urql": "^3.0.3"

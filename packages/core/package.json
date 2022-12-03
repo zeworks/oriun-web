@@ -1,0 +1,15 @@
+{
+  "name": "@oriun/core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "graphql-request": "^5.0.0"
+  }
+}

@@ -1,13 +1,11 @@
 import React, { useCallback, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form';
-import { InputField } from "oriun-ui/lib/components/molecules/inputField"
-import { Button } from "oriun-ui/lib/components/atoms/button"
+import { InputField } from "oriun-ui/lib/components/InputField"
+import { Button } from "oriun-ui/lib/components/Button"
 import { EMAIL_REGEX_PATTERN } from '@/config/constants';
 import { TextSmallError } from '@/components/TextSmallError';
-import { useSdkClient } from '@/lib/sdk';
-import { Icon } from 'oriun-ui/lib/components/atoms/icon';
+import { Icon } from 'oriun-ui/lib/components/Icon';
 import { theme } from 'oriun-ui';
-import { useSession } from '@/context/SessionContext';
 
 const HoverableIcon = theme.styled(Icon, {
   "&:hover": {
@@ -16,43 +14,28 @@ const HoverableIcon = theme.styled(Icon, {
   }
 })
 
-interface LoginData {
+export interface LoginFormData {
   email: string;
   password: string;
 }
 
 export interface LoginProps {
-  onSuccess?: () => void;
-  onError?: (error?: any) => void;
+  onSubmit: (data: LoginFormData) => void;
   showRememberMe?: boolean;
 }
 
-export function LoginForm({ onSuccess, onError, showRememberMe }: LoginProps) {
-  const { handleSubmit, control, formState: { isValid, errors } } = useForm<LoginData>({ mode: "onChange" });
-  const [isLoading, setLoading] = useState(false);
+export function LoginForm({ onSubmit, showRememberMe }: LoginProps) {
+  const { handleSubmit, control, formState: { isValid, errors } } = useForm<LoginFormData>({ mode: "onChange" });
   const [inputType, setInputType] = useState<"text" | "password">("password");
-  const { auth: { login } } = useSdkClient();
-  const { setAuthToken, logout } = useSession()
 
-  const onSubmit = useCallback(handleSubmit(async (data) => {
-    setLoading(true);
-
-    const { data: session, error } = await login(data.email, data.password);
-    setLoading(false);
-
-    if (!session?.session?.accessToken) {
-      logout();
-      return onError?.(error);
-    }
-
-    setAuthToken(session.session.accessToken!);
-    onSuccess?.();
-  }), [onSuccess])
+  const onFormSubmit = useCallback(handleSubmit(async (data) => {
+    onSubmit(data);
+  }), [onSubmit])
 
   const toggleInputType = useCallback(() => setInputType(inputType === "password" ? "text" : "password"), [inputType])
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onFormSubmit}>
       <Controller
         name='email'
         control={control}
@@ -98,10 +81,9 @@ export function LoginForm({ onSuccess, onError, showRememberMe }: LoginProps) {
           {...field} />}
       />
       <br />
-      {isLoading && <span>loading...</span>}
       <div className="d-flex align-items-center justify-content-between">
         {showRememberMe && (<Button variant="link" label="Esqueceu-se da password?" />)}
-        <Button label="Entrar" onClick={onSubmit} />
+        <Button label="Entrar" onClick={onFormSubmit} />
       </div>
     </form>
   )
