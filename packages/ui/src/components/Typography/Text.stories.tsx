@@ -1,12 +1,19 @@
 import React from "react"
 import { ComponentMeta } from '@storybook/react';
-import { Text as TextComponent, TextSmall as TextSmallComponent } from "./Text"
+import { Text as TextComponent } from "./Text"
 
-export const Text = (args: any) => {
+export const Normal = (args: any) => {
   return (
     <>
-      <TextComponent {...args} />
-      <TextSmallComponent {...args} />
+      <TextComponent variant={"normal"} {...args} />
+    </>
+  )
+}
+
+export const Small = (args: any) => {
+  return (
+    <>
+      <TextComponent variant={"small"} {...args} />
     </>
   )
 }
@@ -14,8 +21,8 @@ export const Text = (args: any) => {
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Typography/Text',
-  component: Text,
+  component: Normal,
   args: {
-    children: "Text here..."
+    children: "Text here...",
   }
-} as ComponentMeta<typeof Text>;
+} as ComponentMeta<typeof TextComponent>;

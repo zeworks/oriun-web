@@ -1,25 +1,14 @@
-import { styled } from "@stitches/react";
 import React, { PropsWithChildren } from "react";
-import { pxToRem } from "../../utils/rem";
+import { TextCSS } from "../../styles/typography";
+import theme from "../../theme";
+import type * as Stitches from "@stitches/react";
 
-const StyledText = styled('span', {
-  fontSize: pxToRem(16),
-  display: "block"
-})
+const StyledText = theme.styled('span', TextCSS);
 
-const StyledTextSmall = styled('span', {
-  fontSize: pxToRem(13),
-  display: "block"
-})
-
-export interface TextProps {
+export interface TextProps extends Stitches.VariantProps<typeof TextCSS> {
   className?: string;
 }
 
-export function Text({ children, className }: PropsWithChildren<TextProps>) {
-  return <StyledText className={className}>{children}</StyledText>
-}
-
-export function TextSmall({ children, className }: PropsWithChildren<TextProps>) {
-  return <StyledTextSmall className={className}>{children}</StyledTextSmall>
+export function Text({ children, className, ...props }: PropsWithChildren<TextProps>) {
+  return <StyledText className={className} {...props}>{children}</StyledText>
 }
