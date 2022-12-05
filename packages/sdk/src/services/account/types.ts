@@ -2,12 +2,20 @@ import { gql } from "urql";
 
 export type AccountMeData = {
   me?: {
-    id: string;
-    email: string;
-    username: string;
-    accessToken?: string;
+    id: string
+    email: string
+    username: string
+    accessToken?: string
+    status: boolean
+    role?: {
+      id: string
+      key: string
+      name: string
+    }
     profile: {
-      picture: string;
+      firstName: string
+      lastName?: string
+      picture: string
     }
   }
 }
@@ -19,8 +27,14 @@ export const AccountMeDocument = gql`
       email
       username
       accessToken
+      status
+      role {
+        name
+      }
       profile {
         picture
+        firstName
+        lastName
       }
     }
   }
