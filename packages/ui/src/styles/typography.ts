@@ -29,16 +29,30 @@ export const HeadingCSS = theme.css({
 });
 
 export const TextCSS = theme.css({
+  display: "block",
+
   variants: {
-    variant: {
-      text: {
-        fontSize: pxToRem(16),
-        display: "block"
+    color: {
+      grey: {
+        color: "$grey"
       },
-      textSmall: {
+      dark: {
+        color: "$dark"
+      },
+      danger: {
+        color: "$danger"
+      }
+    },
+    variant: {
+      normal: {
+        fontSize: pxToRem(16),
+      },
+      small: {
         fontSize: pxToRem(13),
-        display: "block"
       }
     }
+  },
+  defaultVariants: {
+    variant: "normal"
   }
 })

@@ -2,6 +2,7 @@ import { Avatar } from "@/components/Avatar";
 import { useSession } from "@/context/Session";
 import { theme } from "@oriun/ui"
 import { Icon } from "@oriun/ui/lib/components/Icon";
+import { Text } from "@oriun/ui/lib/components/Typography";
 import { Dropdown } from "@oriun/ui/src/components/Dropdown";
 
 const Root = theme.styled("div", {
@@ -46,7 +47,13 @@ export function Header() {
           <div className="user">
             <Dropdown.Root>
               <Dropdown.Trigger>
-                <Avatar src={session?.data?.me?.profile.picture} />
+                <div className="d-flex align-items-center">
+                  <div className="d-flex flex-column align-items-end me-2">
+                    <Text>{session?.data?.me?.username}</Text>
+                    <Text variant="small">{session?.data?.me?.role?.name}</Text>
+                  </div>
+                  <Avatar src={session?.data?.me?.profile.picture} />
+                </div>
               </Dropdown.Trigger>
               <Dropdown.Content position="right">
                 <Dropdown.Item>Profile</Dropdown.Item>
