@@ -12,18 +12,27 @@ export const DropdownRootCSS = theme.css({
 
 export const DropdownContentCSS = theme.css({
   position: "absolute",
-  top: "calc(100% + 2px)",
   width: "100%",
   backgroundColor: "$white",
   boxShadow: "$primary",
   borderRadius: "6px",
   overflow: "hidden",
 
+  top: "calc(100% - 5px)",
+  opacity: 0,
+  transition: "top .2s ease, opacity .1s ease",
+
   "@bpLG": {
     width: "max-content",
   },
 
   variants: {
+    active: {
+      true: {
+        top: "calc(100% + 2px)",
+        opacity: 1,
+      }
+    },
     variant: {
       center: {
         left: "50%",
