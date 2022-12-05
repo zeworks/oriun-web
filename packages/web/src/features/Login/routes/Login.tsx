@@ -1,5 +1,5 @@
 import { useSession } from "@/context/Session";
-import { Heading } from "@oriun/ui/lib/components/Typography";
+import { Heading, Text } from "@oriun/ui/lib/components/Typography";
 import { LoginForm, LoginFormData } from "../components/LoginForm";
 import { useNavigate } from "react-router-dom"
 import Styles from "./styles"
@@ -29,30 +29,14 @@ export default function Login() {
   return (
     <Styles.Root>
       <Styles.FormWrapper>
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-lg-10 offset-lg-1">
-              <Styles.Logo><span>o</span>riun</Styles.Logo>
-            </div>
-          </div>
-        </div>
-        <div className="d-flex align-items-center justify-content-center flex-fill">
-          <div className="container">
-            <div className="row">
-              <div className="col-12 col-lg-10 offset-lg-1">
-                <Heading className="mb-5" as="h1" variant="2xl">Bem-vindo ao Oriun!</Heading>
-                <LoginForm
-                  showRememberMe
-                  onSubmit={onSubmitLogin}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Styles.Logo><span>o</span>riun</Styles.Logo>
+        <Heading as="h1" variant="lg">Log in</Heading>
+        <Text className="mb-5">Continue to Oriun</Text>
+        <LoginForm
+          showRememberMe
+          onSubmit={onSubmitLogin}
+        />
       </Styles.FormWrapper>
-      <Styles.Greetings>
-        <h1>teste</h1>
-      </Styles.Greetings>
     </Styles.Root>
   )
 }
