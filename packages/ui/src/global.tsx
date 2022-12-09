@@ -28,6 +28,12 @@ export const global = globalCss({
       margin: 0,
       padding: 0,
       fontWeight: "500"
+    },
+
+    'p': {
+      margin: 0,
+      padding: 0,
+      fontWeight: "400"
     }
   },
   '*': {

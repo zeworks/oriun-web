@@ -3,7 +3,7 @@ import { styled } from "@stitches/react"
 import { ComponentMeta } from "@storybook/react"
 import { InputField as InputFieldComponent } from "./InputField"
 import { Icon } from "../Icon"
-import { TextSmall } from "../Typography/Text"
+import { Text } from "../Text"
 
 export default {
   title: "Form/InputField",
@@ -37,10 +37,10 @@ export const InputFieldWithIcon = (props: any) => {
   return <InputFieldComponent icon="check" {...props} />
 }
 
-const StyledErrorText = styled(TextSmall, {
+const StyledErrorText = styled(Text, {
   color: "$danger"
 })
 
 export const InputFieldWithText = (props: any) => {
-  return <InputFieldComponent text={<StyledErrorText children="this is my small text" />} {...props} />
+  return <InputFieldComponent text={<StyledErrorText size={"small"} children="this is my small text" />} {...props} />
 }

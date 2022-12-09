@@ -11,6 +11,6 @@ export interface InputProps extends React.InputHTMLAttributes<any> {
 export function Input(props: InputProps) {
   // we set the value as "" if undefined to hack the "uncontrolled" input error on console
   return (
-    <StyledInput {...props} value={props.value || ""} />
+    <StyledInput {...props} />
   )
 }

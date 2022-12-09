@@ -1,6 +1,6 @@
 import { Avatar } from "@/components/Avatar";
 import { useSession } from "@/context/Session";
-import { Text } from "@oriun/ui/lib/components/Typography";
+import { Text } from "@oriun/ui/lib/components/Text";
 import { Dropdown } from "@oriun/ui/src/components/Dropdown";
 
 export function DropdownUser() {
@@ -16,7 +16,7 @@ export function DropdownUser() {
         <div className="d-flex align-items-center">
           <div className="d-flex flex-column align-items-end me-2">
             <Text>{session?.data?.me?.username}</Text>
-            <Text variant="small">{session?.data?.me?.role?.name}</Text>
+            <Text size="small">{session?.data?.me?.role?.name}</Text>
           </div>
           <Avatar src={session?.data?.me?.profile.picture} />
         </div>
