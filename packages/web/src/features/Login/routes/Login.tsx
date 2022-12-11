@@ -1,5 +1,5 @@
 import { useSession } from "@/context/Session";
-import { Heading, Text } from "@oriun/ui/lib/components/Typography";
+import { Text } from "@oriun/ui/lib/components/Text";
 import { LoginForm, LoginFormData } from "../components/LoginForm";
 import { useNavigate } from "react-router-dom"
 import Styles from "./styles"
@@ -30,7 +30,7 @@ export default function Login() {
     <Styles.Root>
       <Styles.FormWrapper>
         <Styles.Logo><span>o</span>riun</Styles.Logo>
-        <Heading as="h1" variant="lg">Log in</Heading>
+        <Text as="h1" size="large">Log in</Text>
         <Text className="mb-5">Continue to Oriun</Text>
         <LoginForm
           showRememberMe

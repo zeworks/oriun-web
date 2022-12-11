@@ -28,10 +28,17 @@ export const global = globalCss({
       margin: 0,
       padding: 0,
       fontWeight: "500"
-    }
-  },
-  '*': {
-    boxSizing: "border-box"
+    },
+
+    'p': {
+      margin: 0,
+      padding: 0,
+      fontWeight: "400"
+    },
+
+    '*': {
+      boxSizing: "border-box"
+    },
   },
   '.material-icons': {
     fontFamily: 'Material Icons',

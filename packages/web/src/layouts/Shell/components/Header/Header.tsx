@@ -36,9 +36,7 @@ export function Header() {
               </Dropdown.Content>
             </Dropdown.Root>
           </div>
-          <div className="user">
-            <DropdownUser />
-          </div>
+          <DropdownUser />
         </div>
       </div>
     </Root>

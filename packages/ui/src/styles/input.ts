@@ -24,6 +24,6 @@ export const InputCSS = theme.css({
 
   '&::placeholder': {
     color: "$grey",
-    transition: "padding-left .2s ease-in",
+    transition: "padding-left .1s ease",
   }
 })

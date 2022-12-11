@@ -4,6 +4,7 @@ import { Label as BaseLabel } from '../Label';
 import { pxToRem } from '../../utils/rem';
 import { Icon as BaseIcon, IconProps } from '../Icon';
 import theme from '../../theme';
+import { useCallback } from 'react';
 
 //#region styles
 // override label styles
@@ -111,6 +112,8 @@ export interface InputFieldProps extends InputProps {
 const Input = ({ label, icon, iconStyle = "rounded", iconVariant = "icons", action, text, innerRef, ...props }: InputFieldProps) => {
   const [isFocus, setFocus] = useState(false);
 
+  const toggleFocus = useCallback(() => setFocus(!isFocus), [isFocus]);
+
   return (
     <Root>
       {label && (<StyledLabel text={label} />)}
@@ -124,8 +127,8 @@ const Input = ({ label, icon, iconStyle = "rounded", iconVariant = "icons", acti
           />
         )}
         <StyledInput
-          onBlur={() => setFocus(false)}
-          onFocus={() => setFocus(true)}
+          onBlur={toggleFocus}
+          onFocus={toggleFocus}
           hasIcon={!!icon}
           hasAction={!!action}
           ref={innerRef}
