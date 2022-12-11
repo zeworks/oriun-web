@@ -1,16 +1,27 @@
-import React, { Ref } from 'react'
+import React, { ChangeEvent, Ref, useCallback } from 'react'
 import { styled } from '@stitches/react'
 import { InputCSS } from '../../styles/input'
 
 export const StyledInput = styled('input', InputCSS);
 
-export interface InputProps extends React.InputHTMLAttributes<any> {
-  ref?: Ref<any>
+type InputHTMLAttributes = Pick<React.InputHTMLAttributes<any>, "disabled" | "required" | "value" | "id" | "className" | "onBlur" | "onFocus" | "placeholder">
+
+export interface InputProps extends InputHTMLAttributes {
+  ref?: Ref<any>;
+  name: string;
+  type: string;
+  onChange: (value: string, name: string, valid: boolean) => void;
 }
 
-export function Input(props: InputProps) {
-  // we set the value as "" if undefined to hack the "uncontrolled" input error on console
+export function Input({ name, onChange, ...props }: InputProps) {
+
+  const onInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const valid = e.target.validity.valid || false;
+    onChange(value, name, valid)
+  }, [name, onChange])
+
   return (
-    <StyledInput {...props} />
+    <StyledInput name={name} onChange={onInputChange} {...props} />
   )
 }

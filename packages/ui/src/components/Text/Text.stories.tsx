@@ -67,7 +67,7 @@ export default {
     },
     as: {
       control: "select",
-      options: ["h1", "h2", "h3", "h4", "h5", "h6", "p"]
+      options: ["h1", "h2", "h3", "h4", "h5", "h6", "p", "span"]
     },
     weight: {
       control: "select", options: ["thin", "light", "regular", "medium", "bold"]
