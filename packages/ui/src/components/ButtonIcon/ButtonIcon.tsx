@@ -24,10 +24,9 @@ export function ButtonIcon({
       size={size}
       rounded={rounded}
     >
-      {
-        typeof props.icon === "string"
-          ? <Icon>{props.icon}</Icon>
-          : props.icon
+      {typeof props.icon === "string"
+        ? <Icon>{props.icon}</Icon>
+        : props.icon
       }
     </StyledButton>
   )
