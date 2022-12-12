@@ -1,5 +1,5 @@
 import type * as Stitches from '@stitches/react';
-import React, { FC, PropsWithChildren } from 'react'
+import React from 'react'
 import { ButtonIconCSS } from '../../styles/buttonIcon';
 import theme from '../../theme';
 import { Icon } from '../Icon';
