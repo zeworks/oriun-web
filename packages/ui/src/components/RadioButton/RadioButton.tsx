@@ -5,7 +5,7 @@ import { Text } from '../Text';
 
 type RadioButtonHTMLAttributes = Pick<HTMLInputElement, "disabled" | "required" | "id" | "className" | "checked" | "value">;
 
-type RadioButtonProps = RadioButtonHTMLAttributes & {
+export type RadioButtonProps = RadioButtonHTMLAttributes & {
   /** RadioButton name */
   name: string;
   /** RadioButton element ref */
@@ -59,4 +59,5 @@ function Component({
     </StyledRoot>
   )
 }
+
 export const RadioButton = React.forwardRef<any, RadioButtonProps>((props, ref) => <Component innerRef={ref} {...props} />)
