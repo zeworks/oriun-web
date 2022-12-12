@@ -1,20 +1,17 @@
 import theme from "../theme";
 import { pxToRem } from "../utils/rem";
 
-export const ButtonCSS = theme.css({
+export const ButtonIconCSS = theme.css({
   border: 'none',
   outline: "none",
   color: "$dark",
-  fontFamily: "$primary",
   borderRadius: "6px",
   fontSize: pxToRem(15),
-  fontWeight: "$medium",
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",
-  
+
   '& svg, & i': {
-    margin: "0 0 0 6px",
     fontSize: "20px",
   },
 
@@ -28,13 +25,33 @@ export const ButtonCSS = theme.css({
   },
 
   variants: {
+    size: {
+      small: {
+        width: "35px",
+        height: "35px",
+      },
+      medium: {
+        width: "40px",
+        height: "40px",
+
+        '& svg, & i': {
+          fontSize: "22px",
+        },
+      },
+      large: {
+        width: "50px",
+        height: "50px",
+
+        '& svg, & i': {
+          fontSize: "27px",
+        },
+      }
+    },
     variant: {
       primary: {
         backgroundColor: "$primary",
         color: "$white",
         transition: "box-shadow 0.1s ease",
-        padding: '8px 16px',
-        minHeight: "40px",
 
         '&:hover': {
           boxShadow: `0 8px 25px -8px ${theme.theme.colors.primary}`
@@ -44,8 +61,6 @@ export const ButtonCSS = theme.css({
         backgroundColor: "$secondary",
         color: "$white",
         transition: "box-shadow 0.1s ease",
-        padding: '8px 16px',
-        minHeight: "40px",
 
         '&:hover': {
           boxShadow: `0 8px 25px -8px ${theme.theme.colors.secondary}`
@@ -54,6 +69,16 @@ export const ButtonCSS = theme.css({
       link: {
         backgroundColor: "transparent",
       }
+    },
+    rounded: {
+      true: {
+        borderRadius: "100%",
+      }
     }
+  },
+
+  defaultVariants: {
+    size: "medium",
+    variant: "primary"
   }
 })
