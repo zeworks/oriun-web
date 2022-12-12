@@ -20,7 +20,16 @@ const StyledRoot = theme.styled("label", RadioButtonRootCSS);
 const StyledText = theme.styled(Text, RadioButtonTextCSS);
 const StyledInput = theme.styled("input", RadioButtonInputCSS);
 
-function Component({ label, className, id, disabled, onChange, innerRef, name, ...props }: RadioButtonProps) {
+function Component({
+  label,
+  className,
+  id,
+  disabled,
+  onChange,
+  innerRef,
+  name,
+  ...props
+}: RadioButtonProps) {
 
   const onChangeRadioButton = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
