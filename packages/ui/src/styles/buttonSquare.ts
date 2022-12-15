@@ -1,7 +1,7 @@
 import theme from "../theme";
 import { pxToRem } from "../utils/rem";
 
-export const ButtonIconCSS = theme.css({
+export const ButtonSquareCSS = theme.css({
   border: 'none',
   outline: "none",
   color: "$dark",
@@ -66,8 +66,12 @@ export const ButtonIconCSS = theme.css({
           boxShadow: `0 8px 25px -8px ${theme.theme.colors.secondary}`
         }
       },
-      link: {
-        backgroundColor: "transparent",
+      outlined: {
+        backgroundColor: "$white",
+        border: "1px solid $dark",
+        '&:hover': {
+          boxShadow: `0 8px 25px -8px ${theme.theme.colors.secondary}`
+        }
       }
     },
     rounded: {
@@ -79,6 +83,7 @@ export const ButtonIconCSS = theme.css({
 
   defaultVariants: {
     size: "medium",
-    variant: "primary"
+    variant: "primary",
+    rounded: false
   }
 })
