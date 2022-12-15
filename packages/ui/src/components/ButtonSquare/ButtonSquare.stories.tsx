@@ -8,7 +8,8 @@ export default {
   component: ButtonSquareComponent,
   args: {
     variant: "primary",
-    rounded: false
+    rounded: false,
+    disabled: false,
   },
   argTypes: {
     variant: { control: 'radio', options: ["primary", "secondary", "outlined"] },

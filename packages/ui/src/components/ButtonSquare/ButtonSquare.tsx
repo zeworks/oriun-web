@@ -23,6 +23,7 @@ export function ButtonSquare({
       variant={variant}
       size={size}
       rounded={rounded}
+      {...props}
     >
       {props.children}
     </StyledButton>
