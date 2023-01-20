@@ -1,4 +1,5 @@
 export type RouteConfig = {
+  context?: string;
   path?: string;
   component: any;
   index?: boolean;

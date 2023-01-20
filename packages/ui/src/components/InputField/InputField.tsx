@@ -105,8 +105,6 @@ export interface InputFieldProps extends InputProps {
    * @returns JSX.Element
    */
   text?: React.ReactElement;
-  /** input element ref */
-  innerRef?: Ref<any>
 }
 
 const Input = ({ label, icon, iconStyle = "rounded", iconVariant = "icons", action, text, innerRef, ...props }: InputFieldProps) => {
@@ -131,7 +129,7 @@ const Input = ({ label, icon, iconStyle = "rounded", iconVariant = "icons", acti
           onFocus={toggleFocus}
           hasIcon={!!icon}
           hasAction={!!action}
-          ref={innerRef}
+          innerRef={innerRef}
           {...props}
         />
         {action && <StyledActionWrapper>{action}</StyledActionWrapper>}

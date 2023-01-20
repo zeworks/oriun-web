@@ -1,6 +1,6 @@
 import { useSession } from "@/context/Session";
 import { theme } from "@oriun/ui";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Header } from "./components/Header";
 import { ShellLoading } from "./components/ShellLoading/ShellLoading";
@@ -8,7 +8,7 @@ import { Menu } from "./components/Menu";
 
 const Container = theme.styled("main", {
   marginLeft: "250px",
-  marginTop: "4.7rem",
+  marginTop: "80px",
   position: "relative",
   minHeight: "100vh",
   background: "$light"

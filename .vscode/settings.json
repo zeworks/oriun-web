@@ -11,5 +11,6 @@
     "packages/ui/lib": true,
     "packages/sdk/lib": true,
     "packages/web/dist": true,
+    "packages/module.*/lib": true,
   }
 }

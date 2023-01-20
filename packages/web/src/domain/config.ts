@@ -1,5 +1,6 @@
-import { ApiConfig } from "./config/api";
+import { Config as CoreConfig } from "@oriun/core/lib/domain/config"
+import { Module } from "@oriun/core/lib/domain/module";
 
-export interface Config {
-  api: ApiConfig;
+export interface Config extends CoreConfig {
+  modules?: Module[];
 }
