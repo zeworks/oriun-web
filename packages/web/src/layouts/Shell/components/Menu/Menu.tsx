@@ -2,7 +2,7 @@ import { Config } from "@/domain/config"
 import { useCore } from "@oriun/core"
 import { Module } from "@oriun/core/lib/domain/module"
 import { theme } from "@oriun/ui"
-import { useMemo, useState } from "react"
+import { useMemo } from "react"
 import { MenuModule } from "./MenuModule"
 import { NavLink } from "react-router-dom"
 
@@ -14,6 +14,8 @@ const Root = theme.styled("div", {
   overflow: "hidden",
   padding: "13px 16px",
   boxShadow: "$primary",
+  zIndex: 102,
+  position: "relative",
 
   ".logo": {
     display: "block",
