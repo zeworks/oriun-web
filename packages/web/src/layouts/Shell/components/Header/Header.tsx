@@ -1,32 +1,42 @@
 import { theme } from "@oriun/ui"
 import { Icon } from "@oriun/ui/lib/components/Icon";
-import { Input } from "@oriun/ui/lib/components/Input";
 import { Dropdown } from "@oriun/ui/src/components/Dropdown";
 import React from "react";
 import { DropdownUser } from "./components/DropdownUser";
 
-const Root = theme.styled("div", {
-  height: "65px",
-  position: "fixed",
-  left: 0,
+const RootInner = theme.styled("div", {
+  position: "relative",
   width: "100%",
-  borderBottom: "1px solid rgba(0, 0, 0, 0.1)",
-  boxShadow: "$secondary",
   backgroundColor: "$white",
-  zIndex: 101,
   display: "flex",
   alignItems: "center",
+  height: "65px",
   padding: "0 16px",
+  borderRadius: "6px",
+  boxShadow: "$primary"
 });
 
-const SearchInput = theme.styled(Input, {
-  "@bpMD": {
-    marginLeft: "32px",
-    flex: "0 0 30%",
-    display: "flex",
-    minWidth: "350px"
+const Root = theme.styled("header", {
+  width: "100%",
+  position: "sticky",
+  top: "0",
+  zIndex: 101,
+  paddingTop: "15px",
+
+  "&::before": {
+    content: "",
+    backgroundColor: "white",
+    position: "absolute",
+    width: "calc(100% + 24px)",
+    height: "100%",
+    padding: "10px 10px 0",
+    filter: "blur(4px) opacity(0.8)",
+
+    left: "-24px",
+    top: "-10px"
   }
 })
+
 
 export function Header() {
   const searchRef = React.useRef<HTMLInputElement>(null);
@@ -38,27 +48,26 @@ export function Header() {
 
   return (
     <Root>
-      <div className="flex-fill d-flex justify-content-between">
-        <div className="d-flex align-items-center">
-          <div className="logo">
-            <img src="logo.svg" alt="logo" />
+      <RootInner>
+        <div className="flex-fill d-flex justify-content-between">
+          <div className="d-flex align-items-center">
+            <form className="d-flex flex-fill" onSubmit={onSearchSubmit}>
+              {/* search input here */}
+            </form>
           </div>
-          <form className="d-flex flex-fill" onSubmit={onSearchSubmit}>
-            <SearchInput placeholder="Search" innerRef={searchRef} name="search" type="text" />
-          </form>
+          <div className="d-flex align-items-center">
+            <Dropdown.Root className="me-3">
+              <Dropdown.Trigger>
+                <Icon style="filled">notifications</Icon>
+              </Dropdown.Trigger>
+              <Dropdown.Content position="right">
+                <Dropdown.Item>teste de notifications</Dropdown.Item>
+              </Dropdown.Content>
+            </Dropdown.Root>
+            <DropdownUser />
+          </div>
         </div>
-        <div className="d-flex align-items-center">
-          <Dropdown.Root className="me-3">
-            <Dropdown.Trigger>
-              <Icon style="filled">notifications</Icon>
-            </Dropdown.Trigger>
-            <Dropdown.Content position="right">
-              <Dropdown.Item>teste de notifications</Dropdown.Item>
-            </Dropdown.Content>
-          </Dropdown.Root>
-          <DropdownUser />
-        </div>
-      </div>
+      </RootInner>
     </Root>
   )
 }

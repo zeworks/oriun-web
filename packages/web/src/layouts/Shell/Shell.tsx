@@ -6,16 +6,23 @@ import { Header } from "./components/Header";
 import { ShellLoading } from "./components/ShellLoading/ShellLoading";
 import { Menu } from "./components/Menu";
 
-const Container = theme.styled("main", {
-  marginLeft: "250px",
-  marginTop: "80px",
+const Container = theme.styled("div", {
+  width: "100%",
   position: "relative",
-  minHeight: "100vh",
-  background: "$light"
+  height: "100%",
+  background: "$light",
+  padding: "0 24px",
+  maxWidth: 1600
 })
 
 const Root = theme.styled("div", {
   backgroundColor: "$light",
+  display: "flex",
+  height: "100vh",
+})
+
+const MainContent = theme.styled("main", {
+  padding: "20px 0"
 })
 
 export default function Shell() {
@@ -33,13 +40,13 @@ export default function Shell() {
 
   return (
     <Root>
-      <Header />
-      <div className="d-flex">
-        <Menu />
-        <Container className="container-fluid">
+      <Menu />
+      <Container className="container-fluid">
+        <Header />
+        <MainContent>
           <Outlet context="app" />
-        </Container>
-      </div>
+        </MainContent>
+      </Container>
     </Root>
   )
 }

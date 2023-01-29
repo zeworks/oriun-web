@@ -2,20 +2,23 @@ import { Config } from "@/domain/config"
 import { useCore } from "@oriun/core"
 import { Module } from "@oriun/core/lib/domain/module"
 import { theme } from "@oriun/ui"
-import { useMemo } from "react"
+import { useMemo, useState } from "react"
 import { MenuModule } from "./MenuModule"
+import { NavLink } from "react-router-dom"
 
 const Root = theme.styled("div", {
-  height: "calc(100% - 65px)",
-  width: "250px",
+  height: "100%",
+  width: "300px",
   backgroundColor: "$white",
-  position: "fixed",
-  top: "65px",
-  left: 0,
-  zIndex: 100,
   userSelect: "none",
   overflow: "hidden",
-  borderRight: "1px solid rgba(0, 0, 0, 0.1)",
+  padding: "13px 16px",
+  boxShadow: "$primary",
+
+  ".logo": {
+    display: "block",
+    margin: "0 0 16px 16px"
+  }
 })
 
 export function Menu() {
@@ -26,7 +29,9 @@ export function Menu() {
 
   return (
     <Root>
-      menu component
+      <NavLink to="/" className="logo">
+        <img src="/logo.svg" alt="logo" />
+      </NavLink>
       {modules?.map(module =>
         <MenuModule
           key={module.key}
