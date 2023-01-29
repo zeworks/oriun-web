@@ -8,7 +8,7 @@ export const ButtonCSS = theme.css({
   fontFamily: "$primary",
   borderRadius: "6px",
   fontSize: pxToRem(15),
-  fontWeight: "$medium",
+  fontWeight: "$regular",
   display: "inline-flex",
   alignItems: "center",
   justifyContent: "center",

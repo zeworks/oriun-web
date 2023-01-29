@@ -74,7 +74,7 @@ export function LoginForm({ onSubmit, showRememberMe }: LoginProps) {
           placeholder="Insira a password"
           text={<TextSmallError>{errors?.email?.message}</TextSmallError>}
           action={
-            <HoverableIcon onClick={toggleInputType}>
+            <HoverableIcon variant='symbols' onClick={toggleInputType}>
               {inputType === "password" ? "visibility" : "visibility_off"}
             </HoverableIcon>
           }
