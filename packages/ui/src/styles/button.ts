@@ -32,23 +32,23 @@ export const ButtonCSS = theme.css({
       primary: {
         backgroundColor: "$primary",
         color: "$white",
-        transition: "box-shadow 0.1s ease",
+        transition: "background-color 0.1s ease",
         padding: '8px 16px',
         minHeight: "40px",
 
         '&:hover': {
-          boxShadow: `0 8px 25px -8px ${theme.theme.colors.primary}`
+          backgroundColor: "rgb(101, 91, 211)"
         },
       },
       secondary: {
         backgroundColor: "$secondary",
         color: "$white",
-        transition: "box-shadow 0.1s ease",
+        transition: "background-color 0.1s ease",
         padding: '8px 16px',
         minHeight: "40px",
 
         '&:hover': {
-          boxShadow: `0 8px 25px -8px ${theme.theme.colors.secondary}`
+          backgroundColor: "rgb(148, 150, 153)"
         }
       },
       link: {

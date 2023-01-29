@@ -14,7 +14,7 @@ export default createStitches({
     colors: {
       primary: "#7367f0",
       primaryTransparent: "rgba(115, 103, 240, 0.12)",
-      secondary: "#82868b",
+      secondary: "rgb(168, 170, 174)",
       success: "#28c76f",
       successTransparent: "rgba(40, 199, 111, 0.12)",
       info: "#00cfe8",
