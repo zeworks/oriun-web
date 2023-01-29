@@ -4,6 +4,7 @@
   "description": "",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
+  "type": "module",
   "scripts": {
     "dev": "tsc -w",
     "build": "rm -rf lib && tsc"

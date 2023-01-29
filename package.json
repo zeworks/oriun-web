@@ -10,8 +10,8 @@
     "packages/ui",
     "packages/core",
     "packages/sdk",
-    "packages/web",
-    "packages/module.dashboard"
+    "packages/module.dashboard",
+    "packages/web"
   ],
   "devDependencies": {
     "@types/node": "^18.11.9",

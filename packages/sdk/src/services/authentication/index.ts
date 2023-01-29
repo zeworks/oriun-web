@@ -7,7 +7,7 @@ export const useCreateAuthentication = () => {
   const {config} = useCore();
 
   async function createAuthentication(variables: CreateAuthenticationVariables) {
-    return fetcher(config.api.url, CreateAuthenticationDocument, variables)
+    return fetcher<CreateAuthenticationData>(config.api.url, CreateAuthenticationDocument, variables)
   }
   
   return useMutation<CreateAuthenticationData, any, CreateAuthenticationVariables>(createAuthentication)
