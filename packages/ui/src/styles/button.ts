@@ -36,7 +36,7 @@ export const ButtonCSS = theme.css({
         padding: '8px 16px',
         minHeight: "40px",
 
-        '&:hover': {
+        '&:not(:disabled):hover': {
           backgroundColor: "rgb(101, 91, 211)"
         },
       },
@@ -47,7 +47,7 @@ export const ButtonCSS = theme.css({
         padding: '8px 16px',
         minHeight: "40px",
 
-        '&:hover': {
+        '&:not(:disabled):hover': {
           backgroundColor: "rgb(148, 150, 153)"
         }
       },

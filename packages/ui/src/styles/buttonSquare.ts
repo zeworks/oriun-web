@@ -51,26 +51,29 @@ export const ButtonSquareCSS = theme.css({
       primary: {
         backgroundColor: "$primary",
         color: "$white",
-        transition: "box-shadow 0.1s ease",
+        transition: "background-color 0.1s ease",
 
-        '&:hover': {
-          boxShadow: `0 8px 25px -8px ${theme.theme.colors.primary}`
+        '&:not(:disabled):hover': {
+          backgroundColor: "rgb(101, 91, 211)"
         },
       },
       secondary: {
         backgroundColor: "$secondary",
         color: "$white",
-        transition: "box-shadow 0.1s ease",
+        transition: "background-color 0.1s ease",
 
-        '&:hover': {
-          boxShadow: `0 8px 25px -8px ${theme.theme.colors.secondary}`
+        '&:not(:disabled):hover': {
+          backgroundColor: "rgb(148, 150, 153)"
         }
       },
       outlined: {
-        backgroundColor: "$white",
-        border: "1px solid $dark",
-        '&:hover': {
-          boxShadow: `0 8px 25px -8px ${theme.theme.colors.secondary}`
+        backgroundColor: "transparent",
+        border: "1px solid rgba(115, 103, 240, 0.5)",
+        color: "$primary",
+        transition: "border 0.1s ease",
+
+        '&:not(:disabled):hover': {
+          border: `1px solid rgb(115, 103, 240)`
         }
       }
     },

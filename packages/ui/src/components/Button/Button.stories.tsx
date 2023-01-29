@@ -9,7 +9,8 @@ export default {
   args: {
     label: "Button Text",
     variant: "primary",
-    icon: false
+    icon: false,
+    disabled: false
   },
   argTypes: {
     variant: { control: 'radio', options: ["primary", "secondary", "link"] },
