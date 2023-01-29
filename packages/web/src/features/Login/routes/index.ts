@@ -1,4 +1,4 @@
-import { RouteConfig } from "../../../config/route";
+import { RouteConfig } from "@oriun/core/lib/domain/route";
 import Login from "./Login";
 
 export const build = (config?: any): RouteConfig[] => (

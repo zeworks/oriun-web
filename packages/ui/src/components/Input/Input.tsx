@@ -7,21 +7,21 @@ export const StyledInput = styled('input', InputCSS);
 type InputHTMLAttributes = Pick<React.InputHTMLAttributes<any>, "disabled" | "required" | "value" | "id" | "className" | "onBlur" | "onFocus" | "placeholder">
 
 export interface InputProps extends InputHTMLAttributes {
-  ref?: Ref<any>;
+  innerRef?: Ref<any>;
   name: string;
   type: string;
-  onChange: (value: string, name: string, valid: boolean) => void;
+  onChange?: (value: string, name: string, valid: boolean) => void;
 }
 
-export function Input({ name, onChange, ...props }: InputProps) {
+export function Input({ name, onChange, innerRef, ...props }: InputProps) {
 
   const onInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     const valid = e.target.validity.valid || false;
-    onChange(value, name, valid)
+    onChange?.(value, name, valid)
   }, [name, onChange])
 
   return (
-    <StyledInput name={name} onChange={onInputChange} {...props} />
+    <StyledInput name={name} onChange={onInputChange} ref={innerRef} {...props} />
   )
 }

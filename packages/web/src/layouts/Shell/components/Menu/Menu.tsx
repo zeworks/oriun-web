@@ -1,21 +1,45 @@
+import { Config } from "@/domain/config"
+import { useCore } from "@oriun/core"
+import { Module } from "@oriun/core/lib/domain/module"
 import { theme } from "@oriun/ui"
+import { useMemo } from "react"
+import { MenuModule } from "./MenuModule"
+import { NavLink } from "react-router-dom"
 
 const Root = theme.styled("div", {
-  height: "calc(100% - 4rem)",
-  width: "250px",
+  height: "100%",
+  width: "300px",
   backgroundColor: "$white",
-  position: "fixed",
-  top: "4rem",
-  left: 0,
-  zIndex: 100,
-  pointerEvents: "none",
   userSelect: "none",
   overflow: "hidden",
-  borderRight: "1px solid rgba(0, 0, 0, 0.1)",
+  padding: "13px 16px",
+  boxShadow: "$primary",
+  zIndex: 102,
+  position: "relative",
+
+  ".logo": {
+    display: "block",
+    margin: "0 0 16px 16px"
+  }
 })
 
 export function Menu() {
+  const { config } = useCore()
+
+  //get the modules with available menus array
+  const modules = useMemo<Module[]>(() => (config as Config).modules?.filter(module => !!module.menus?.length) || [], []);
+
   return (
-    <Root>Menu Component</Root>
+    <Root>
+      <NavLink to="/" className="logo">
+        <img src="/logo.svg" alt="logo" />
+      </NavLink>
+      {modules?.map(module =>
+        <MenuModule
+          key={module.key}
+          data={module}
+        />
+      )}
+    </Root>
   )
 }

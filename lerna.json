@@ -3,6 +3,7 @@
     "packages/ui",
     "packages/core",
     "packages/sdk",
+    "packages/module.dashboard",
     "packages/web"
   ],
   "version": "0.0.0"

@@ -64,7 +64,7 @@ export const DropdownLabelCSS = theme.css({
   color: "$grey",
   textTransform: "uppercase",
   padding: "0.8rem 1rem",
-  display: "flex",
+  display: "block",
 })
 
 export const DropdownItemCSS = theme.css({

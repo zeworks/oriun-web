@@ -1,6 +1,6 @@
-import { theme } from "@oriun/ui";
 import { cloneElement, PropsWithChildren, useMemo } from "react";
 import { DropdownTriggerCSS } from "../../styles/dropdown";
+import theme from "../../theme";
 
 const StyledDropdownTrigger = theme.styled("div", DropdownTriggerCSS)
 

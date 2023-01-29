@@ -35,7 +35,7 @@ const defaultSessionContext: ContextSession = {
 export const SessionContext = createContext<ContextSession>(defaultSessionContext);
 
 export function SessionProvider(props: PropsWithChildren) {
-  const { data, refetch: loadAuthentication, isLoading, error, isFetched, } = useMe();
+  const { data, refetch: loadAuthentication, isLoading, error, isFetched } = useMe();
   const [session, setSession] = useState<Session["data"]>();
 
   const hasAuthenticationToken = useMemo(() => !!getOriunToken() || undefined, []);

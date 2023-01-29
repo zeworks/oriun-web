@@ -4,4 +4,5 @@ src/**/*.d.ts
 packages/ui/lib
 packages/sdk/lib
 packages/core/lib
+packages/module.*/lib
 dist

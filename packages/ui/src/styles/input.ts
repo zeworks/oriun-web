@@ -12,6 +12,7 @@ export const InputCSS = theme.css({
   fontWeight: "300",
   fontFamily: "$primary",
   width: "100%",
+  backgroundColor: "$white",
 
   '&:focus': {
     borderColor: "$primary",
