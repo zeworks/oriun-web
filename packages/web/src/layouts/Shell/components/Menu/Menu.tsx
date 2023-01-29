@@ -19,7 +19,7 @@ const Root = theme.styled("div", {
 
   ".logo": {
     display: "block",
-    margin: "0 0 16px 16px"
+    margin: "0 0 16px 0"
   }
 })
 
