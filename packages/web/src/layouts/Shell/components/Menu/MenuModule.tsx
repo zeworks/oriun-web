@@ -112,9 +112,11 @@ function MenuModuleItem({ data, children, activePath }: PropsWithChildren<MenuMo
 
   const toggleMenu = useCallback(() => setActive(!isActive), [isActive]);
 
+  const isExpandable = data.children && data.children.length > 0;
+
   return (
     <MenuListItem className={classNames({ "active": isActive !== undefined ? isActive : false || activePath })}>
-      {data.expandable
+      {isExpandable
         ? (
           <MenuListItemExpandable onClick={toggleMenu}>
             <span>{data.name}</span>
