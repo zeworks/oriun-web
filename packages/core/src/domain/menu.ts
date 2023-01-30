@@ -4,6 +4,5 @@ export type Menu = {
   icon?: string;
   enabled?: boolean;
   permissions?: Array<string>;
-  expandable?: boolean;
   children?: Array<Menu>;
 }
