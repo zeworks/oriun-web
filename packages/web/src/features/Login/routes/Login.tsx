@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import Styles from "./styles"
 import { useCreateAuthentication } from "@oriun/sdk/lib/services/authentication";
 import { useEffect } from "react";
+import LoginIllustrationImage from "@/assets/login-illustration.png"
 
 export default function Login() {
   const { mutateAsync: execute } = useCreateAuthentication()
@@ -28,6 +29,9 @@ export default function Login() {
 
   return (
     <Styles.Root>
+      <Styles.Illustration>
+        <Styles.IllustrationImage src={LoginIllustrationImage} />
+      </Styles.Illustration>
       <Styles.FormWrapper>
         <Styles.Logo><span>o</span>riun</Styles.Logo>
         <Text as="h1" size="large">Log in</Text>

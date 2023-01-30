@@ -4,23 +4,28 @@ const Root = theme.styled("div", {
   display: "flex",
   height: "100vh",
   width: "100%",
-  justifyContent: "center",
-  alignItems: "center",
-  background: "rgb(156,34,255)",
-  backgroundImage: "linear-gradient(137deg, rgba(156,34,255,1) 19%, rgba(55,14,144,1) 100%)",
-
+  backgroundColor: "$white",
+  
   "@bpLG": {
-    flexDirection: "row"
+    padding: "24px",
+    display: "grid",
+    gridTemplateColumns: "1fr 40%",
+  },
+
+  "@media (min-width: 1920px)": {
+    gridTemplateColumns: "1fr 25%",
   }
 });
 
 const FormWrapper = theme.styled("div", {
-  backgroundColor: "$white",
   width: "100%",
-  maxWidth: 500,
   padding: "24px",
-  borderRadius: "6px",
-  boxShadow: "$primary"
+  alignSelf: "center",
+
+  "@bpLG": {
+    maxWidth: 600,
+    margin:"0 auto"
+  }
 });
 
 const Logo = theme.styled("span", {
@@ -41,8 +46,29 @@ const Logo = theme.styled("span", {
   }
 })
 
+const Illustration = theme.styled("div", {
+  overflow: "hidden",
+  display: "none",
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor: "$primaryTransparent",
+  borderRadius: "20px",
+
+  "@bpLG": {
+    display: "flex",
+  }
+})
+
+const IllustrationImage = theme.styled("img", {
+  maxWidth: "100%",
+  display: "block",
+  height: "55%",
+})
+
 export default {
   FormWrapper,
   Root,
-  Logo
+  Logo,
+  Illustration,
+  IllustrationImage,
 }
