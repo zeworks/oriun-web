@@ -23,7 +23,7 @@ const FormWrapper = theme.styled("div", {
   alignSelf: "center",
 
   "@bpLG": {
-    maxWidth: 600,
+    maxWidth: 450,
     margin:"0 auto"
   }
 });

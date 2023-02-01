@@ -29,7 +29,12 @@ export const AccountMeDocument = gql`
       accessToken
       status
       role {
-        name
+        name,
+        permissions {
+          id
+          key
+          name
+        }
       }
       profile {
         picture

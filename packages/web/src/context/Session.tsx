@@ -65,6 +65,7 @@ export function SessionProvider(props: PropsWithChildren) {
   }), [session, isLoading, error, isFetched])
 
   useEffect(() => {
+    // this will close the session, with ANY error
     if (error)
       closeAuthentication()
   }, [error, closeAuthentication]);
