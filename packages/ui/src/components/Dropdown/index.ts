@@ -5,11 +5,11 @@ import { DropdownSeparator } from "./DropdownSeparator"
 import { DropdownLabel } from "./DropdownLabel"
 import { DropdownItem } from "./DropdownItem"
 
-export const Dropdown = {
-  Root: DropdownRoot,
-  Trigger: DropdownTrigger,
-  Content: DropdownContent,
-  Separator: DropdownSeparator,
-  Label: DropdownLabel,
-  Item: DropdownItem
+export default {
+	Root: DropdownRoot,
+	Trigger: DropdownTrigger,
+	Content: DropdownContent,
+	Separator: DropdownSeparator,
+	Label: DropdownLabel,
+	Item: DropdownItem,
 }

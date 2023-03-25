@@ -25,6 +25,7 @@
     "src"
   ],
   "exclude": [
-    "src/**/*.stories.tsx"
+    "src/stories",
+    ".storybook"
   ]
 }
