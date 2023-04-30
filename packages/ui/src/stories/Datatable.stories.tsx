@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import D from "../components/Datatable"
+import { Datatable as Dt } from "../components/Datatable/Datatable"
 import { ComponentMeta } from "@storybook/react"
 
 const DATATABLE_COUNTER_OPTIONS = [10, 25, 50]
@@ -103,8 +104,38 @@ const DATATABLE_DATA = {
 				value: "teste 6 extended",
 			},
 		],
+		[
+			{
+				name: "id",
+				value: "7",
+			},
+			{
+				name: "title",
+				value: "teste 7",
+			},
+			{
+				name: "title_extended",
+				value: "teste 7 extended",
+			},
+		],
 	],
 }
+
+const columns = [
+	{
+		name: "ID",
+		selector: (row) => row.id,
+		width: "100px",
+	},
+	{
+		name: "Title",
+		selector: (row) => row.title,
+	},
+	{
+		name: "Year",
+		selector: (row) => row.year,
+	},
+]
 
 export default {
 	title: "Data/Datatable",
@@ -151,7 +182,7 @@ export const Datatable = (args: any) => {
 					))}
 				</D.Header>
 				<D.Body>
-					{DATATABLE_DATA.rows.map((r, index) => (
+					{DATATABLE_DATA.rows.slice(0, 5).map((r, index) => (
 						<D.Row key={index}>
 							{r.map((c) => (
 								<D.Column key={c.name}>{c.value}</D.Column>
@@ -169,10 +200,31 @@ export const Datatable = (args: any) => {
 				/>
 				<D.Pagination
 					current={currentPage}
-					total={30}
+					total={DATATABLE_DATA.rows.length}
 					onChange={setCurrentPage}
 				/>
 			</div>
 		</D.Root>
 	)
 }
+
+export const DatatableDynamic = (args: any) => {
+	const data = [
+		{
+			id: 1,
+			title: "Beetlejuice",
+			year: "1988",
+		},
+		{
+			id: 2,
+			title: "Ghostbusters",
+			year: "1984",
+		},
+	]
+
+	return <Dt {...args} columns={columns} data={data} isSearchable />
+}
+
+export const DatatableError = (args: any) => (
+	<Dt columns={columns} data={[]} {...args} />
+)
