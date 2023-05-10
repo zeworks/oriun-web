@@ -2306,14 +2306,6 @@
   dependencies:
     "graphql-request" "^5.0.0"
 
-"@oriun/module.dashboard@file:../module.dashboard", "@oriun/module.dashboard@file:/Users/zeluzes/dev/oriun/oriun-web/packages/module.dashboard":
-  "resolved" "file:packages/module.dashboard"
-  "version" "0.1.0"
-  dependencies:
-    "@oriun/core" "file:../core"
-    "@oriun/sdk" "file:../sdk"
-    "@oriun/ui" "file:../ui"
-
 "@oriun/sdk@file:../sdk", "@oriun/sdk@file:/Users/zeluzes/dev/oriun/oriun-web/packages/sdk":
   "resolved" "file:packages/sdk"
   "version" "0.1.0"
