@@ -10,7 +10,6 @@
     "packages/ui",
     "packages/core",
     "packages/sdk",
-    "packages/module.dashboard",
     "packages/web"
   ],
   "devDependencies": {

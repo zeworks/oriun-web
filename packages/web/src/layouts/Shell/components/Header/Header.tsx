@@ -27,12 +27,12 @@ const Root = theme.styled("header", {
 		content: "",
 		backgroundColor: "white",
 		position: "absolute",
-		width: "calc(100% + 24px)",
+		width: "calc(100% + 10px)",
 		height: "100%",
-		padding: "10px 10px 0",
-		filter: "blur(4px) opacity(0.8)",
+		padding: "10px 5px 0",
+		filter: "blur(5px) opacity(0.7)",
 
-		left: "-24px",
+		left: "-10px",
 		top: "-10px",
 	},
 })

@@ -16,7 +16,6 @@
     "@oriun/sdk": "file:../sdk",
     "@oriun/ui": "file:../ui",
     "@oriun/core": "file:../core",
-    "@oriun/module.dashboard": "file:../module.dashboard",
     "typescript": "^4.6.4"
   }
 }
