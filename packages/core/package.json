@@ -2,7 +2,8 @@
   "name": "@oriun/core",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "rm -rf lib && tsc"
@@ -11,5 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "graphql-request": "^5.0.0"
-  }
+  },
+  "files": [
+    "./lib"
+  ]
 }

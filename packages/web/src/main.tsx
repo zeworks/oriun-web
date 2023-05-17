@@ -7,6 +7,7 @@ import { routes } from "./routes"
 import { ShellLoading } from "./layouts/Shell/components/ShellLoading/ShellLoading"
 import { RouteConfig } from "@oriun/core/lib/domain/route"
 import DashboardModule from "./features/Dashboard"
+import { QueryClient, QueryClientProvider } from "react-query"
 
 const modules = [DashboardModule].map((m) => m())
 
@@ -36,18 +37,22 @@ function setupAppRoutes() {
 	return routesList.map(buildAppRoutes)
 }
 
+const queryClient = new QueryClient()
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<CoreProvider
 		config={{
 			modules,
 		}}
 	>
-		<SessionProvider>
-			<React.Suspense fallback={<ShellLoading />}>
-				<BrowserRouter>
-					<Routes>{setupAppRoutes()}</Routes>
-				</BrowserRouter>
-			</React.Suspense>
-		</SessionProvider>
+		<QueryClientProvider client={queryClient}>
+			<SessionProvider>
+				<React.Suspense fallback={<ShellLoading />}>
+					<BrowserRouter>
+						<Routes>{setupAppRoutes()}</Routes>
+					</BrowserRouter>
+				</React.Suspense>
+			</SessionProvider>
+		</QueryClientProvider>
 	</CoreProvider>
 )
