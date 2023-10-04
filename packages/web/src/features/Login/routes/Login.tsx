@@ -1,26 +1,37 @@
 import { useSession } from "@/context/Session"
-import { Text } from "@oriun/ui/lib/components/Text"
-import { LoginForm, LoginFormData } from "../components/LoginForm"
+import { LoginForm, FormData } from "../components/LoginForm"
 import { useNavigate } from "react-router-dom"
 import Styles from "./styles"
 import { useCreateAuthentication } from "@oriun/sdk/lib/services/authentication"
 import { useEffect } from "react"
-import LoginIllustrationImage from "@/assets/login-illustration.png"
 
 export default function Login() {
-	const { mutateAsync: execute, error } = useCreateAuthentication()
+	const { mutateAsync: execute, error, reset } = useCreateAuthentication()
 	const navigate = useNavigate()
 	const { setAuthenticationToken, checkAuthentication } = useSession()
 
-	async function onSubmitLogin(data: LoginFormData) {
+	async function onSubmitLogin(data: FormData) {
 		const result = await execute(data)
+
+		reset()
 
 		if (result.session?.accessToken) {
 			setAuthenticationToken(result.session.accessToken)
 		}
 	}
 
-	// if loggeod, redirect the user to the home screen
+	// if there is some error shown, should reset the form, after 5 seconds
+	useEffect(() => {
+		if (error) {
+			const timeout = setTimeout(() => {
+				reset()
+			}, 5000)
+
+			return () => clearTimeout(timeout)
+		}
+	}, [error])
+
+	// if logged, redirect the user to the home screen
 	useEffect(() => {
 		if (checkAuthentication()) {
 			navigate("/")
@@ -29,19 +40,18 @@ export default function Login() {
 
 	return (
 		<Styles.Root>
-			<Styles.Illustration>
-				<Styles.IllustrationImage src={LoginIllustrationImage} />
-			</Styles.Illustration>
-			<Styles.FormWrapper>
-				<Styles.Logo>
-					<span>o</span>riun
-				</Styles.Logo>
-				<Text as="h1" size="large">
-					Log in
-				</Text>
-				<Text className="mb-5">Continue to Oriun</Text>
-				<LoginForm showRememberMe onSubmit={onSubmitLogin} />
-			</Styles.FormWrapper>
+			<div className="container">
+				<div className="row">
+					<div className="col-6 offset-3">
+						<Styles.FormWrapper>
+							<Styles.Logo>
+								<span>o</span>riun
+							</Styles.Logo>
+							<LoginForm showRememberMe onSubmit={onSubmitLogin} />
+						</Styles.FormWrapper>
+					</div>
+				</div>
+			</div>
 		</Styles.Root>
 	)
 }

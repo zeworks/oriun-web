@@ -6,6 +6,7 @@ import { EMAIL_REGEX_PATTERN } from "@/config/constants"
 import { TextSmallError } from "@/components/TextSmallError"
 import { Icon } from "@oriun/ui/lib/components/Icon"
 import { theme } from "@oriun/ui"
+import { Link } from "react-router-dom"
 
 const HoverableIcon = theme.styled(Icon, {
 	"&:hover": {
@@ -14,22 +15,44 @@ const HoverableIcon = theme.styled(Icon, {
 	},
 })
 
-export interface LoginFormData {
+const ButtonSubmit = theme.styled(Button, {
+	display: "flex",
+	width: "100%",
+	marginBottom: "30px",
+	"&&": {
+		fontSize: "17px",
+		minHeight: "50px",
+		textTransform: "uppercase",
+		fontWeight: theme.theme.fontWeights.medium,
+	},
+})
+
+const ButtonRecoverPassword = theme.styled(Link, {
+	color: theme.theme.colors.dark,
+	textDecoration: "none",
+	margin: "0 auto",
+
+	"&:hover": {
+		color: theme.theme.colors.primary,
+	},
+})
+
+export interface FormData {
 	email: string
 	password: string
 }
 
-export interface LoginProps {
-	onSubmit: (data: LoginFormData) => void
+interface Props {
+	onSubmit: (data: FormData) => void
 	showRememberMe?: boolean
 }
 
-export function LoginForm({ onSubmit, showRememberMe }: LoginProps) {
+export function LoginForm({ onSubmit, showRememberMe }: Props) {
 	const {
 		handleSubmit,
 		control,
 		formState: { errors },
-	} = useForm<LoginFormData>({ mode: "onChange" })
+	} = useForm<FormData>({ mode: "onChange" })
 	const [inputType, setInputType] = useState<"text" | "password">("password")
 
 	const onFormSubmit = useCallback(
@@ -39,10 +62,8 @@ export function LoginForm({ onSubmit, showRememberMe }: LoginProps) {
 		[onSubmit]
 	)
 
-	const toggleInputType = useCallback(
-		() => setInputType(inputType === "password" ? "text" : "password"),
-		[inputType]
-	)
+	const toggleInputType = () =>
+		setInputType(inputType === "password" ? "text" : "password")
 
 	return (
 		<form onSubmit={onFormSubmit}>
@@ -93,13 +114,12 @@ export function LoginForm({ onSubmit, showRememberMe }: LoginProps) {
 					/>
 				)}
 			/>
-			<br />
-			<div className="d-flex align-items-center justify-content-between">
-				{showRememberMe && (
-					<Button variant="link" label="Esqueceu-se da password?" />
-				)}
-				<Button label="Entrar" onClick={onFormSubmit} />
-			</div>
+			<ButtonSubmit label="Entrar" className="w-100" onClick={onFormSubmit} />
+			{showRememberMe && (
+				<ButtonRecoverPassword to={"/reset"}>
+					Esqueceu-se da password?
+				</ButtonRecoverPassword>
+			)}
 		</form>
 	)
 }
